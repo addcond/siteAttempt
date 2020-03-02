@@ -1,0 +1,37 @@
+.info-window {
+    min-width: 500px;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid grey;
+}
+
+.info-window img {
+    width: 400px;
+    margin: auto;
+}
+
+.info-window header {
+    font-weight: bolder;
+    background-color: royalblue;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.info-window ul {
+    list-style: none;
+}
+
+.info-window .fav-ctrl {
+    margin-top: 15px;
+    height: 70px;
+}
+
+.lister:hover {
+    cursor: pointer;
+}
