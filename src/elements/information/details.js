@@ -5,6 +5,7 @@ export function Details(props) {
 
     const {item} = props;
     const {keywords, bathroom_number, bedroom_number, lister_url, summary} = item;
+
     return (
         <>
             <div className="details">
