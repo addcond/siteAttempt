@@ -2,7 +2,6 @@ import {dataUsage, checkListings} from './features';
 
 const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&country=uk&listing_type=rent&listing_type=buy&place_name=';
 
-
 export function inputValueChange(value) {
 
     return {
@@ -14,7 +13,6 @@ export function inputValueChange(value) {
 export function FavUsage(id) {
 
     return function(dispatch, getState) {
-
         const favIndex = getState().favorites.findIndex(element => element.id === id);
         const indexInData = getState().data.findIndex(element => element.id === id);
 
@@ -25,7 +23,7 @@ export function FavUsage(id) {
             return;
         }
 
-        const itemToAdd = indexInData + 1 ? getState().data[indexInData] : getState().infoItem;
+        const itemToAdd = indexInData + 1 ? getState().data[indexInData] : getState().itemInfo;
 
         dispatch({
             type: 'ADD_TO_FAVORITES',
@@ -37,15 +35,14 @@ export function FavUsage(id) {
     }
 }
 
-export function addItemInfo(id) {
+export function itemInfo(id) {
 
     return function(dispatch, getState) {
-
-        const infoItem = getState().data.find(element => element.id === id) ||
+        const itemInfo = getState().data.find(element => element.id === id) ||
             getState().favorites.find(element => element.id === id);
         dispatch({
-            type: 'ADD_ITEM_INFO',
-            payload: infoItem
+            type: 'ITEM_INFO',
+            payload: itemInfo
         });
     }
 }
@@ -53,7 +50,6 @@ export function addItemInfo(id) {
 export function submitFormAsync() {
 
     return function(dispatch, getState) {
-
         const placeName = getState().inputValue;
         dispatch({
             type: 'START_REQUEST',
@@ -77,4 +73,30 @@ export function submitFormAsync() {
     }
 }
 
-// тут будет работа кнопки отображения дополнительных результатов к уже имеющимся
+export function nextPage() {
+
+    return function (dispatch, getState) {
+        if (getState().currentPage + 1 > getState().totalPages) {
+            dispatch({
+                type: 'LAST_PAGE_REACHED'
+            });
+            return;
+        }
+
+        dispatch({
+            type: 'START_REQUEST_NEXT'
+        });
+
+        const url = BASE_URL + getState().lastSearched + '&page=' + getState().currentPage;
+
+        dataUsage(url, dispatch).then((data) => {
+            if (data) {
+                data.listings = checkListings(data.listings, getState);
+                dispatch({
+                    type: 'FETCHED_DATA_NEXT',
+                    payload: data.listings
+                })
+            }
+        });
+    };
+}

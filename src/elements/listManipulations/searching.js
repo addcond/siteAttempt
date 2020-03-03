@@ -4,13 +4,13 @@ import './styles.css';
 
 export function ShowMoreButton(props) {
 
-    const {isOnLastPage, onShowMoreClick} = props;
-    const onClick = () => {if(!isOnLastPage) {onShowMoreClick()}};
+    const onClick = () => {if(!props.isOnLastPage) props.onClickGetMore()};
 
     return (
-        <div className="show-more"
+        <div className="show-click"
              onClick={onClick}
-        > {isOnLastPage} Get more places
+        >
+            {props.isOnLastPage ? 'That is all' : 'Get more'}
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FavApp, Header} from '../form/basicComponents';
+import {AddFavAp, Header} from '../form/basicComponents';
 import {Details} from './details';
 import {FavUsage} from '../../store/actions';
 import {connect} from 'react-redux';
@@ -19,7 +19,7 @@ function Info(props) {
             <img src={img_url} alt={title} />
             <Details item={item} />
             <div>
-                <FavApp favApartment={favApartment}
+                <AddFavAp favApartment={favApartment}
                         onFavClick={onFavClick}
                 />
             </div>
@@ -28,8 +28,9 @@ function Info(props) {
 }
 
 const mapStateToProps = (state) => {
+
     return {
-        data: state.infoItem
+        data: state.itemInfo
     }
 };
 

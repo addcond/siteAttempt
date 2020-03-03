@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 
 
-export function FavApp(props) {
+export function AddFavAp(props) {
 
     const {favApartment, onFavClick} = props;
 

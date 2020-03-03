@@ -10,10 +10,10 @@ export function List(props) {
     return (
         <div className="list-wrapper">
             {error && !isFetchingData}
-            {!data[1] && !isFetchingData &&
+            {!data[0] && !isFetchingData &&
             <header>Try again</header>
             }
-            {data[1] &&
+            {data[0] &&
             <ListItems data={data}
                        pathname={pathname}
                        onFavClick={onFavClick}

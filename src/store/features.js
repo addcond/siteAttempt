@@ -10,7 +10,6 @@ function compareObjects(obj1, obj2) {
 export function dataUsage(url, dispatch) {
 
     return fetch(url).then(response => {
-
             return response.json();
            }).then(response => {
 
@@ -31,7 +30,6 @@ export function dataUsage(url, dispatch) {
 export function checkListings(listings, getState) {
 
     return listings.map((dataElement, index) => {
-
         const favIndex = getState().favorites.findIndex((favElement) => {
             return favElement.img_url === dataElement.img_url ? compareObjects(dataElement, favElement) : false;
         });

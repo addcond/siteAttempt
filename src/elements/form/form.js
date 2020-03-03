@@ -28,6 +28,7 @@ function Form(props) {
 }
 
 const mapStateToProps = function(state) {
+
     const {inputValue, isFetching} = state;
 
     return {

@@ -9,7 +9,6 @@ export function ListItems(props) {
         const {data, pathname, onFavClick, handleItemClick} = props;
 
         return data.map((item, index) => {
-
             return (
                 <Item key={index}
                       data={item}
@@ -21,7 +20,6 @@ export function ListItems(props) {
     }
 
     return (
-
         <div className="list-items-wrapper">
             {getItems()}
         </div>

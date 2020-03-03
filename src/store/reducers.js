@@ -2,7 +2,7 @@ const initialState = {
     inputValue: '',
     data: [],
     favorites: [],
-    infoItem: {},
+    itemInfo: {},
     isFetching: false,
     currentPage: 0,
     lastSearched: '',
@@ -12,64 +12,71 @@ const initialState = {
 
 export default function Reducer(state = initialState, action) {
 
-    switch (action.type) {
+    const {type, payload} = action;
+    const {itemInfo, favorites, data, currentPage} = state;
+
+    switch (type) {
         case 'INPUT_CHANGE': return {
             ...state,
-            inputValue: action.payload
+            inputValue: payload
         };
-        case 'ADD_ITEM_INFO': return {
+        case 'ITEM_INFO': return {
             ...state,
-            infoItem: action.payload
+            itemInfo: payload
         };
         case 'ADD_TO_FAVORITES': return {
             ...state,
-            infoItem: {...state.infoItem, favIndex: state.favorites.length},
-            data: state.data.map((element,index) => {
-                return index === action.payload.index ?
-                    {...element, favIndex: state.favorites.length} : element;
+            itemInfo: {...itemInfo, favIndex: favorites.length},
+            data: data.map((element,index) => {
+                return index === payload.index ?
+                    {...element, favIndex: favorites.length} : element;
             }),
-            favorites: state.favorites.concat({
-                ...action.payload.item,
-                favIndex: state.favorites.length
+            favorites: favorites.concat({
+                ...payload.item,
+                favIndex: favorites.length
             })
         };
         case 'REMOVE_FROM_FAVORITES': return {
             ...state,
-            infoItem: {...state.infoItem, favIndex: -1},
-            data: state.data.map((element, index) => {
-                return action.payload.indexInData === index ?
+            itemInfo: {...itemInfo, favIndex: -1},
+            data: data.map((element, index) => {
+                return payload.indexInData === index ?
                     {...element, favIndex: -1} : element
             }),
-            favorites: state.favorites.filter((element, index) => index !== action.payload.favIndex)
+            favorites: favorites.filter((element, index) => index !== payload.favIndex)
         };
         case 'START_REQUEST': return {
             ...state,
             isFetching: true,
-            lastSearched: action.payload,
+            lastSearched: payload,
             currentPage: 1,
             data: []
         };
         case 'FETCHED_DATA': return {
             ...state,
-            data: state.data.concat(action.payload.data),
-            totalPages: action.payload.totalPages,
+            data: data.concat(payload.data),
+            totalPages: payload.totalPages,
             isFetching: false,
             error: null
         };
         case 'START_REQUEST_NEXT': return {
             ...state,
-            currentPage: state.currentPage + 1,
+            currentPage: currentPage + 1,
             isFetching: true
         };
         case 'FETCHED_DATA_NEXT': return {
             ...state,
-            data: state.data.concat(action.payload),
+            data: data.concat(payload),
             isFetching: false
         };
         case 'RESPONSE_ERROR': return {
             ...state,
-            error: action.payload,
+            error: payload,
             isFetching: false
+        };
+        case 'LAST_PAGE_REACHED': return {
+            ...state,
+            isOnLastPage: true
         };
         default: return state;
     }

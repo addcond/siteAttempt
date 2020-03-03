@@ -1,6 +1,6 @@
 import {List} from './list';
 import {connect} from 'react-redux';
-import {FavUsage, addItemInfo} from '../../store/actions';
+import {FavUsage, itemInfo} from '../../store/actions';
 
 
 const mapStateToProps = (state) => {
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
 
     onFavClick: FavUsage,
-    handleItemClick: addItemInfo
+    handleItemClick: itemInfo
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

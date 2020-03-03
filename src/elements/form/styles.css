@@ -19,11 +19,10 @@
     color: white;
     text-decoration: none;
     padding: .5em 2em;
-    outline: none;
-    border-width: 2px 0;
+    border-width: 2px;
     border-style: solid none;
     border-color: #FDBE33 black black;
-    border-radius: 9px;
+    border-radius: 8px;
     background: linear-gradient(#F3AE0F, #E38916) #E38916;
     transition: 0.9s;
     cursor: alias;
@@ -37,31 +36,47 @@
     background: linear-gradient(#f59500, #f5ae00) #f59500
 }
 
-.add, .remove {
-    border: 1px solid grey;
+.remove, .add {
     position: relative;
-    opacity: 0.9;
+    opacity: 0.7;
     width: 100%;
-    height: 98%;
+    height: 100%;
+    border: 1px black;
 }
 
-.add:hover, .remove:hover {
-    opacity: 0.6;
-}
-
-.add:before{
-    content: "Add to favorites";
+.add:before, .add:after, .remove:before, .remove:after {
+    position: absolute;
+    left: 48%;
+    top: 40%;
+    content: '';
+    height: 35px;
+    width: 5px;
+    background-color: black;
 }
 
 .remove:before {
-    content: "Remove from favorites";
+    transform: rotate(-45deg);
+}
+.remove:after {
+    transform: rotate(45deg);
+}
+.add:after {
+    transform: rotate(90deg);
 }
 
 .add {
     background-color: springgreen;
 }
 
+.add:hover {
+    background-color: green;
+}
+
 .remove {
+    background-color: indianred;
+}
+
+.remove:hover {
     background-color: red;
 }
 
