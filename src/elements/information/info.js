@@ -10,18 +10,17 @@ function Info(props) {
 
     const item = props.data;
     const favApartment = item.favIndex + 1 ? 'remove' : 'add';
+    const {title, price_formatted, img_url, id} = item;
+    const onFavClick = () => {props.onFavClick(id)};
 
     return (
         <div className='info-window'>
-            <Header title={item.title} price={item.price_formatted} />
-            <img src={item.img_url} alt={item.title} />
+            <Header title={title} price={price_formatted} />
+            <img src={img_url} alt={title} />
             <Details item={item} />
             <div>
                 <FavApp favApartment={favApartment}
-                        onFavClick={() => {
-                            props.onFavClick(item.id);
-                            console.log(item.favIndex);
-                        }}
+                        onFavClick={onFavClick}
                 />
             </div>
         </div>

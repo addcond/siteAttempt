@@ -4,20 +4,22 @@ import './styles.css';
 
 
 export function List(props) {
+
+    const {error, isFetchingData, data, pathname, onFavClick, handleItemClick} = props;
+
     return (
         <div className="list-wrapper">
-            {props.error && !props.isFetchingData}
-            {!props.data[0] && !props.isFetchingData &&
+            {error && !isFetchingData}
+            {!data[1] && !isFetchingData &&
             <header>Try again</header>
             }
-            {props.data[0] &&
-            <ListItems data={props.data}
-                       pathname={props.pathname}
-                       onFavClick={props.onFavClick}
-                       handleItemClick={props.handleItemClick}
+            {data[1] &&
+            <ListItems data={data}
+                       pathname={pathname}
+                       onFavClick={onFavClick}
+                       handleItemClick={handleItemClick}
             />
             }
-            {props.isFetchingData}
         </div>
     )
 }

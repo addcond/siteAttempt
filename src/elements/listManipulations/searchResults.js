@@ -6,20 +6,26 @@ import React from 'react';
 
 
 function SearchResults(props) {
+
+    const {isFetchingData, data} = props;
+
     return (
         <>
             <List {...props} />
-            {!props.isFetchingData && props.data[0] && <ShowMoreButton />}
+            {!isFetchingData && data[0] && <ShowMoreButton />}
         </>
     )
 }
 
 const mapStateToProps = function(state) {
+
+    const {data, error, isFetchingData, isOnLastPage} = state;
+
     return {
-        data: state.data,
-        isFetchingData: state.isFetching,
-        error: state.error,
-        isOnLastPage: state.isOnLastPage
+        data,
+        isFetchingData,
+        error,
+        isOnLastPage
     }
 };
 

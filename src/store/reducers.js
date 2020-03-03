@@ -1,5 +1,5 @@
 const initialState = {
-    inputValue: 'nestoria',
+    inputValue: '',
     data: [],
     favorites: [],
     infoItem: {},

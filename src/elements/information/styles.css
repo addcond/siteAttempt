@@ -12,6 +12,7 @@
 .info-window img {
     width: 400px;
     margin: auto;
+    margin-bottom: 10px;
 }
 
 .info-window header {
@@ -27,7 +28,7 @@
     list-style: none;
 }
 
-.info-window .fav-ctrl {
+.info-window .favCl {
     margin-top: 15px;
     height: 70px;
 }

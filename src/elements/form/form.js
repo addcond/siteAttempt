@@ -5,34 +5,40 @@ import './styles.css';
 
 
 function Form(props) {
+
+    const {isFetchingData, value, onInputValue} = props;
+    const onChange = event => {onInputValue(event.target.value)};
+    const onSubmit = event => {
+        event.preventDefault();
+        !isFetchingData && props.onSubmit();
+    };
+
     return (
         <div className="wrapper">
             <form className="form"
-                  onSubmit={(event) => {
-                      !props.isFetchingData && props.onSubmit();
-                      event.preventDefault();
-                  }}
-            >
+                  onSubmit={onSubmit} >
                 <input type="text"
-                       placeholder="search"
-                       value={props.value}
-                       onChange={(event) => {props.onInputValueChange(event.target.value)}}/>
+                       placeholder="try Nestoria"
+                       value={value}
+                       onChange={onChange} />
                 <input type="submit" value="Find places to stay" />
             </form>
         </div>
-    )
+    );
 }
 
 const mapStateToProps = function(state) {
+    const {inputValue, isFetching} = state;
+
     return {
-        value: state.inputValue,
-        isFetchingData: state.isFetching
+        inputValue,
+        isFetching
     }
 };
 
 const mapDispatchToProps = {
     onSubmit: submitFormAsync,
-    onInputValueChange: inputValueChange
+    onInputValue: inputValueChange
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);
