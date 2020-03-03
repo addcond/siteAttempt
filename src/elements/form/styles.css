@@ -14,6 +14,7 @@
 }
 
 .form input[type=submit] {
+    font-style: italic;
     display: inline-block;
     color: white;
     text-decoration: none;
@@ -21,11 +22,11 @@
     outline: none;
     border-width: 2px 0;
     border-style: solid none;
-    border-color: #FDBE33 #000 #D77206;
-    border-radius: 6px;
+    border-color: #FDBE33 black black;
+    border-radius: 9px;
     background: linear-gradient(#F3AE0F, #E38916) #E38916;
-    transition: 0.2s;
-    cursor: pointer;
+    transition: 0.9s;
+    cursor: alias;
 }
 
 .form input[type=submit]:hover {
@@ -38,10 +39,10 @@
 
 .add, .remove {
     border: 1px solid grey;
-    position: center;
+    position: relative;
     opacity: 0.9;
     width: 100%;
-    height: 98.5%;
+    height: 98%;
 }
 
 .add:hover, .remove:hover {
