@@ -1,7 +1,7 @@
 import {List} from './list';
 import {connect} from 'react-redux';
 import {FavUsage, itemInfo, nextPage} from '../../store/actions';
-import {ShowMoreButton} from './searching';
+import {GetMoreButton} from './searching';
 import React from 'react';
 
 
@@ -13,7 +13,7 @@ function SearchResults(props) {
         <>
             <List {...props} />
             {!isFetchingData && data[0] &&
-            <ShowMoreButton
+            <GetMoreButton
                 onClickGetMore={onClickGetMore}
                 isOnLastPage={isOnLastPage}
             />
@@ -22,9 +22,7 @@ function SearchResults(props) {
     )
 }
 
-const mapStateToProps = function(state) {
-
-    const {data, error, isFetchingData, isOnLastPage} = state;
+const mapStateToProps = ({data, error, isFetchingData, isOnLastPage}) => {
 
     return {
         data,
@@ -35,6 +33,7 @@ const mapStateToProps = function(state) {
 };
 
 const mapDispatchToProps = {
+
     onClickGetMore: nextPage,
     onFavClick: FavUsage,
     handleItemClick: itemInfo

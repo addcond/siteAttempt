@@ -2,15 +2,19 @@ import React from 'react';
 import './styles.css';
 
 
-export function ShowMoreButton(props) {
+export function GetMoreButton({isOnLastPage, onClickGetMore}) {
 
-    const onClick = () => {if(!props.isOnLastPage) props.onClickGetMore()};
+    const onClick = () => {
+            if (!isOnLastPage) {
+                 onClickGetMore()
+            }
+    };
 
     return (
         <div className="show-click"
              onClick={onClick}
         >
-            {props.isOnLastPage ? 'That is all' : 'Get more'}
+            {isOnLastPage ? 'That is all' : 'Get more'}
         </div>
     )
 }

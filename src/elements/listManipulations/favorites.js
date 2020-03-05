@@ -3,11 +3,11 @@ import {connect} from 'react-redux';
 import {FavUsage, itemInfo} from '../../store/actions';
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({favorites}) => {
 
     return {
-        data: state.favorites,
-    }
+        data: favorites
+    };
 };
 
 const mapDispatchToProps = {

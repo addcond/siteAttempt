@@ -6,11 +6,15 @@ import './styles.css';
 
 export function Item(props) {
 
-    const favApartment = props.data.favIndex + 1 ? 'remove' : 'add';
     const {handleItemClick, data} = props;
+    const favApartment = data.favIndex + 1 ? 'remove' : 'add';
     const {title, price_formatted, summary, img_url} = data;
-    const onClick = () => {handleItemClick(data.id)};
-    const onFavClick = () => {props.onFavClick(data.id)};
+    const onClick = () => {
+        handleItemClick(data.id)
+    };
+    const onFavClick = () => {
+        props.onFavClick(data.id)
+    };
 
     return (
         <div className="item-wrapper">

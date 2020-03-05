@@ -50,13 +50,13 @@ export function itemInfo(id) {
 export function submitFormAsync() {
 
     return function(dispatch, getState) {
-        const placeName = getState().inputValue;
+        const apName = getState().inputValue;
         dispatch({
             type: 'START_REQUEST',
-            payload: placeName
+            payload: apName
         });
 
-        const url = BASE_URL + placeName;
+        const url = BASE_URL + apName;
 
         dataUsage(url, dispatch).then(data => {
             if (data) {

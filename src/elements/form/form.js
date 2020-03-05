@@ -7,10 +7,13 @@ import './styles.css';
 function Form(props) {
 
     const {isFetchingData, value, onInputValue} = props;
-    const onChange = event => {onInputValue(event.target.value)};
+    const onChange = event => {
+        onInputValue(event.target.value)
+    };
     const onSubmit = event => {
-        event.preventDefault();
-        !isFetchingData && props.onSubmit();
+        const {onSubmit} = props;
+            event.preventDefault();
+            !isFetchingData && onSubmit();
     };
 
     return (
@@ -27,9 +30,7 @@ function Form(props) {
     );
 }
 
-const mapStateToProps = function(state) {
-
-    const {inputValue, isFetching} = state;
+const mapStateToProps = ({inputValue, isFetching}) => {
 
     return {
         inputValue,

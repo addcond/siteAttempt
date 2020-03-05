@@ -8,29 +8,30 @@ import './styles.css';
 
 function Info(props) {
 
-    const item = props.data;
-    const favApartment = item.favIndex + 1 ? 'remove' : 'add';
-    const {title, price_formatted, img_url, id} = item;
-    const onFavClick = () => {props.onFavClick(id)};
-
+    const {title, price_formatted, img_url, id, favIndex, itemInfo} = props;
+    const favApartment = favIndex + 1 ? 'remove' : 'add';
+    const onFavClick = () => {
+        const {onFavClick} = props;
+        onFavClick(id)
+    };
     return (
         <div className='info-window'>
             <Header title={title} price={price_formatted} />
             <img src={img_url} alt={title} />
-            <Details item={item} />
+            <Details item={itemInfo} />
             <div>
                 <AddFavAp favApartment={favApartment}
-                        onFavClick={onFavClick}
+                          onFavClick={onFavClick}
                 />
             </div>
         </div>
     )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({itemInfo}) => {
 
     return {
-        data: state.itemInfo
+        itemInfo
     }
 };
 
