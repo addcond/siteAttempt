@@ -33,7 +33,7 @@
 }
 
 .form input[type=submit]:active {
-    background: linear-gradient(#f59500, #f5ae00) #f59500
+    background: linear-gradient(#f59500, #f5ae00) #f59500;
 }
 
 .remove, .add {
@@ -73,11 +73,11 @@
 }
 
 .remove {
-    background-color: indianred;
+    background-color: red;
 }
 
 .remove:hover {
-    background-color: red;
+    background-color: darkred;
 }
 
 .header {

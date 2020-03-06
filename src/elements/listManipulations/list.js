@@ -8,7 +8,7 @@ export function List(props) {
     const {error, isFetchingData, data, pathname, onFavClick, handleItemClick} = props;
 
     return (
-        <div className="list-wrapper">
+        <div className='list-wrapper'>
             {error && !isFetchingData}
             {!data[0] && !isFetchingData &&
             <header>Try again</header>

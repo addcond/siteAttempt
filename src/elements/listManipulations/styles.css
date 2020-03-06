@@ -9,7 +9,7 @@
 
 .item-wrapper .item-content {
     grid-area: summary;
-    text-align: justify-all;
+    text-align: match-parent;
     padding-left: 15px;
 }
 

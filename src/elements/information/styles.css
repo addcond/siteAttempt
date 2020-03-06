@@ -1,6 +1,5 @@
 .info-window {
-    min-width: 500px;
-    max-width: 800px;
+    width: 800px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -9,7 +8,7 @@
 }
 
 .info-window img {
-    width: 400px;
+    width: 500px;
     margin: auto;
 }
 
@@ -24,11 +23,17 @@
 
 .info-window ul {
     list-style: none;
+    display: unset;
 }
 
 .info-window .favCl {
     margin-top: 20px;
     height: 100px;
+}
+
+.lister {
+    font-style: italic;
+    font-size: 20px;
 }
 
 .lister:hover {

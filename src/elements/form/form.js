@@ -17,14 +17,14 @@ function Form(props) {
     };
 
     return (
-        <div className="wrapper">
-            <form className="form"
+        <div className='wrapper'>
+            <form className='form'
                   onSubmit={onSubmit} >
-                <input type="text"
-                       placeholder="try Nestoria"
+                <input type='text'
+                       placeholder='try Nestoria'
                        value={value}
                        onChange={onChange} />
-                <input type="submit" value="Find places to stay" />
+                <input type='submit' value='Find places to stay' />
             </form>
         </div>
     );

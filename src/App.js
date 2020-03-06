@@ -16,13 +16,13 @@ const store = createStore(Reducer, applyMiddleware(thunk));
 function App() {
     return (
         <Provider store={store}>
-            <div className="App">
+            <div className='App'>
                 <Router>
-                    <Route exact={true} path="/" render={() => {
+                    <Route exact={true} path='/' render={() => {
                         return (
                             <>
                                 <div className='navigationButton'>
-                                    <Link to="/favorites" className="favButton">Favorites</Link>
+                                    <Link to='/favorites' className='favButton'>Favorites</Link>
                                 </div>
                                 <Form />
                                 <SearchResults/>
@@ -30,8 +30,7 @@ function App() {
                         )
                     }}
                     />
-
-                    <Route path="/favorites" render={() => {
+                    <Route path='/favorites' render={() => {
                         return (
                             <>
                                 <div className='navigationButton'>
@@ -42,8 +41,7 @@ function App() {
                         )
                     }}
                     />
-
-                    <Route path="/info" render={() => {
+                    <Route path='/info' render={() => {
                         return (
                             <>
                                 <div className='navigationButton'>

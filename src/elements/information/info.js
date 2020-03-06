@@ -8,12 +8,14 @@ import './styles.css';
 
 function Info(props) {
 
-    const {title, price_formatted, img_url, id, favIndex, itemInfo} = props;
+    const {itemInfo} = props;
+    const {img_url, price_formatted, title, id, favIndex} = itemInfo;
     const favApartment = favIndex + 1 ? 'remove' : 'add';
     const onFavClick = () => {
         const {onFavClick} = props;
         onFavClick(id)
     };
+
     return (
         <div className='info-window'>
             <Header title={title} price={price_formatted} />

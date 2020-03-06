@@ -13,21 +13,89 @@
 }
 
 .favButton {
-  text-align: center;
-  display: block;
-  border-radius: 7px;
-  border: 1px solid black;
-  padding: 10px;
-  background-color: #ffd00b;
-  margin: 5px;
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0,0,0,.3);
+  transition: .5s;
+}
+
+.favButton:hover {
+  background-position: right center;
 }
 
 a {
   color: black;
   text-decoration: none;
-  background-color: lightyellow;
 }
 
 a:hover {
   background-color: lightsalmon;
+}
+
+.loginButton {
+  position: absolute;
+  display: inline-flex;
+  box-sizing: border-box;
+  height: 40px;
+  top: 30px;
+  right: 50px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 40px;
+  color: #FFF;
+  font-weight: bold;
+  font-family: 'Roboto Condensed', Тahoma, sans-serif;
+  background: #337AB7;
+  cursor: pointer;
+  border: 2px solid #BFE2FF;
+}
+
+.loginButton:hover, .loginButton:active, .loginButton:focus {
+  color: #FFF;
+}
+
+.loginButton:after, .loginButton:before {
+  content: "Log In";
+  border: 4px solid transparent;
+  position: absolute;
+  width: 0;
+  height: 0;
+  box-sizing: content-box;
+}
+
+.loginButton:before {
+  top: -6px;
+  left: -6px;
+}
+
+.loginButton:after {
+  bottom: -6px;
+  right: -6px;
+}
+
+.loginButton:hover:before, .loginButton:active:before, .loginButton:focus:before {
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-top-color: #337AB7;
+  border-right-color: #337AB7;
+  transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
+}
+
+.loginButton:hover:after, .loginButton:active:after, .loginButton:focus:after {
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-bottom-color: #337AB7;
+  border-left-color: #337AB7;
+  transition: border-color 0s ease-out 0.4s, width 0.2s ease-out 0.4s, height 0.2s ease-out 0.6s;
 }

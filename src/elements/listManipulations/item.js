@@ -7,21 +7,22 @@ import './styles.css';
 export function Item(props) {
 
     const {handleItemClick, data} = props;
-    const favApartment = data.favIndex + 1 ? 'remove' : 'add';
-    const {title, price_formatted, summary, img_url} = data;
+    const {title, price_formatted, summary, img_url, favIndex, id} = data;
+    const favApartment = favIndex + 1 ? 'remove' : 'add';
     const onClick = () => {
-        handleItemClick(data.id)
+        handleItemClick(id)
     };
     const onFavClick = () => {
-        props.onFavClick(data.id)
+        const {onFavClick} = props;
+            onFavClick(id)
     };
 
     return (
-        <div className="item-wrapper">
+        <div className='item-wrapper'>
             <Link to={'/info'} onClick={onClick}>
                 <Header title={title} price={price_formatted} />
-                <img src={img_url} alt={title} />
-                <div className="item-content">{summary}</div>
+                <img src={img_url} alt={title} /> <img src={img_url} alt={title}/>
+                <div className='item-content'>{summary}</div>
             </Link>
             <AddFavAp favApartment={favApartment} onFavClick={onFavClick} />
         </div>

@@ -20,7 +20,7 @@ export function ListItems(props) {
     }
 
     return (
-        <div className="list-items-wrapper">
+        <div className='list-items-wrapper'>
             {getItems()}
         </div>
     )

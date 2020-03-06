@@ -11,7 +11,7 @@ export function GetMoreButton({isOnLastPage, onClickGetMore}) {
     };
 
     return (
-        <div className="show-click"
+        <div className='show-click'
              onClick={onClick}
         >
             {isOnLastPage ? 'That is all' : 'Get more'}

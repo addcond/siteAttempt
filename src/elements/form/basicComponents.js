@@ -20,9 +20,9 @@ export function Header(props) {
     const {title, price} = props;
 
     return (
-        <header className="header">
-            <div className="title">{title}</div>
-            <div className="price">{price}</div>
+        <header className='header'>
+            <div className='title'>{title}</div>
+            <div className='price'>Price per night {price}</div>
         </header>
     )
 }
